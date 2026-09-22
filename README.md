@@ -1,46 +1,31 @@
-# Soccer Trivia
+# Soccer Trivia Master
 
-A polished browser-based soccer trivia game built with HTML, CSS, and JavaScript. The game includes a broad set of football facts, major tournament moments, player records, and club achievements across levels 1 to 100.
+A responsive browser-based soccer trivia adventure built with HTML, CSS, and JavaScript.
 
-## Features
+## New features
 
-- Difficulty progression from 1 to 100
-- Category selection: All, World Cup, Players, Clubs, Records, Tournaments
-- Dynamic question generation based on player-selected difficulty
-- Final score combining accuracy and weighted points
-- Answer review unlocked only after finishing the game
-- Responsive design for desktop and mobile screens
-- Fast local play through a browser
+- Startup welcome screen and five-chapter story mode
+- True 1–100 level progression map
+- Five rounds with 25 timed questions
+- Difficulty tiers: 1–20, 21–40, 41–60, 61–80, and 81–100
+- Tier lock messaging and progressive level unlocking
+- Correct/incorrect sound effects generated with the Web Audio API
+- Animated level nodes, transitions, answer feedback, and result reveal
+- Answers remain locked until all rounds are completed
+- Local top-10 leaderboard using browser `localStorage`
+- Name-safe leaderboard rendering and mobile-friendly layout
+- Existing custom game controls and curated question categories remain available
 
-## How to Run
+## Run locally
 
-Open `index.html` directly in a browser, or use a local server:
+Open `index.html` in a browser, or run:
 
 ```bash
 python -m http.server 8000
 ```
 
-Then open:
+Visit `http://localhost:8000`.
 
-```text
-http://localhost:8000
-```
+## Data and accuracy
 
-## Project Structure
-
-```text
-soccer-trivia/
-├── index.html
-├── style.css
-├── script.js
-├── README.md
-└── .gitignore
-```
-
-## Notes
-
-This project uses a curated and expanded pool of football facts and records, designed to challenge players across a broad range of skill levels.
-
-## License
-
-This project is intended for educational and personal use. Add an open-source license if you plan to publish it formally.
+The game contains a curated static question bank. Football records and competition results change over time, so facts should be reviewed against authoritative sources before presenting the game as a definitive historical database. The leaderboard is local to the browser and is not shared between players.
