@@ -3,40 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Soccer Trivia</title>
+    <title>Soccer Trivia Master</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="app">
-      <header class="topbar">
+    <div class="app-shell">
+      <header class="header">
         <p class="eyebrow">Football Knowledge Challenge</p>
-        <h1>Soccer Trivia</h1>
+        <h1>Soccer Trivia Master</h1>
       </header>
 
       <main>
         <section id="setupScreen" class="panel">
-          <h2>Choose your difficulty</h2>
-          <p class="helper-text">
-            Questions range from Level 1 (easy) to Level 100 (expert). The game
-            uses a broad set of soccer facts, legends, records, and major tournament
-            milestones.
-          </p>
+          <h2>Customize your challenge</h2>
+          <div class="field-group">
+            <label for="categorySelect">Category</label>
+            <select id="categorySelect">
+              <option value="all">All categories</option>
+              <option value="World Cup">World Cup</option>
+              <option value="Players">Players</option>
+              <option value="Clubs">Clubs</option>
+              <option value="Records">Records</option>
+              <option value="Tournaments">Tournaments</option>
+            </select>
+          </div>
 
-          <label for="difficultySlider">Difficulty: <span id="difficultyValue">50</span></label>
-          <input
-            id="difficultySlider"
-            type="range"
-            min="1"
-            max="100"
-            value="50"
-          />
+          <div class="field-group">
+            <label for="questionCountSelect">Questions</label>
+            <select id="questionCountSelect">
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20" selected>20</option>
+              <option value="25">25</option>
+            </select>
+          </div>
 
-          <div class="difficulty-scale">
-            <span>1</span>
-            <span>25</span>
-            <span>50</span>
-            <span>75</span>
-            <span>100</span>
+          <div class="field-group">
+            <label for="difficultySlider">
+              Max difficulty level: <span id="difficultyValue">100</span>
+            </label>
+            <input id="difficultySlider" type="range" min="1" max="100" value="100" />
+            <div class="difficulty-scale">
+              <span>1</span>
+              <span>25</span>
+              <span>50</span>
+              <span>75</span>
+              <span>100</span>
+            </div>
           </div>
 
           <button id="startButton" class="primary-button">Start Game</button>
@@ -45,7 +58,12 @@
         <section id="gameScreen" class="panel hidden">
           <div class="status-row">
             <span id="scoreDisplay">Score: 0</span>
-            <span id="progressDisplay">Question 1/10</span>
+            <span id="progressDisplay">Question 1/0</span>
+            <span id="timerDisplay">Time: 20s</span>
+          </div>
+
+          <div class="progress-track">
+            <div id="progressBar" class="progress-fill"></div>
           </div>
 
           <div class="question-box">
@@ -54,7 +72,6 @@
           </div>
 
           <div id="optionsContainer" class="options"></div>
-
           <button id="nextButton" class="primary-button hidden">Next Question</button>
         </section>
 
@@ -63,22 +80,24 @@
 
           <div class="result-grid">
             <div class="result-box">
-              <span class="label">Aggregate Score</span>
-              <strong id="aggregateScore">0</strong>
+              <span class="label">Final Score</span>
+              <strong id="finalScore">0/100</strong>
             </div>
             <div class="result-box">
               <span class="label">Accuracy</span>
               <strong id="accuracyPercent">0%</strong>
             </div>
             <div class="result-box">
-              <span class="label">Correct</span>
+              <span class="label">Correct Answers</span>
               <strong id="correctCount">0</strong>
             </div>
             <div class="result-box">
-              <span class="label">Total</span>
+              <span class="label">Total Questions</span>
               <strong id="totalQuestions">0</strong>
             </div>
           </div>
+
+          <div id="summaryMessage" class="summary-message"></div>
 
           <button id="restartButton" class="primary-button">Play Again</button>
 

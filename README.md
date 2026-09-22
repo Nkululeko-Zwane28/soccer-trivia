@@ -1,26 +1,26 @@
 # Soccer Trivia
 
-A browser-based soccer trivia game built with HTML, CSS, and JavaScript. The game includes a progressive difficulty system, a broad range of football facts and records, and a final score that combines points and percentages.
+A polished browser-based soccer trivia game built with HTML, CSS, and JavaScript. The game includes a broad set of football facts, major tournament moments, player records, and club achievements across levels 1 to 100.
 
 ## Features
 
-- Difficulty levels from 1 to 100
-- Curated soccer facts and record questions
-- Score system based on points and performance percentage
-- Final answer review unlocked only after game completion
-- Responsive UI for desktop and mobile browsers
+- Difficulty progression from 1 to 100
+- Category selection: All, World Cup, Players, Clubs, Records, Tournaments
+- Dynamic question generation based on player-selected difficulty
+- Final score combining accuracy and weighted points
+- Answer review unlocked only after finishing the game
+- Responsive design for desktop and mobile screens
+- Fast local play through a browser
 
 ## How to Run
 
-Open `index.html` in a web browser.
-
-For a local server:
+Open `index.html` directly in a browser, or use a local server:
 
 ```bash
 python -m http.server 8000
 ```
 
-Then visit:
+Then open:
 
 ```text
 http://localhost:8000
@@ -39,8 +39,8 @@ soccer-trivia/
 
 ## Notes
 
-This project uses a broad collection of football trivia covering major competitions, legendary players, historical records, club achievements, World Cup milestones, and global football statistics.
+This project uses a curated and expanded pool of football facts and records, designed to challenge players across a broad range of skill levels.
 
 ## License
 
-This project is intended for educational and personal use. If you want to publish it publicly, you may add an open-source license such as MIT.
+This project is intended for educational and personal use. Add an open-source license if you plan to publish it formally.
