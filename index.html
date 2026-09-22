@@ -3,14 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#071a2a" />
+    <meta name="theme-color" content="#081b2b" />
     <title>Soccer Trivia Master</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="enhanced.css" />
   </head>
   <body>
     <div class="app-shell">
       <header class="header">
+        <div class="brand-badge">⚽</div>
         <p class="eyebrow">Football Knowledge Challenge</p>
         <h1>Soccer Trivia Master</h1>
       </header>
@@ -18,12 +21,21 @@
       <main>
         <section id="welcomeScreen" class="panel welcome-screen">
           <div class="hero-ball" aria-hidden="true">⚽</div>
-          <p class="eyebrow">The road to football mastery</p>
+          <p class="eyebrow golden">The road to football mastery</p>
           <h2>Welcome, future football expert</h2>
-          <p class="story-copy">Travel through five chapters of soccer history. Beat each difficulty tier to unlock the next part of the pitch, survive the timer, and complete all five rounds before the answer vault opens.</p>
+          <p class="story-copy">
+            Travel through five chapters of soccer history. Beat each difficulty tier to unlock the next part of the pitch,
+            survive the timer, and finish the full journey before the final answer vault opens.
+          </p>
+
           <div class="story-chapters">
-            <span>01 Foundations</span><span>02 Rising Stars</span><span>03 Elite Records</span><span>04 Legends</span><span>05 Immortals</span>
+            <span>01 Foundations</span>
+            <span>02 Rising Stars</span>
+            <span>03 Elite Records</span>
+            <span>04 Legends</span>
+            <span>05 Immortals</span>
           </div>
+
           <div class="welcome-actions">
             <button id="storyStartButton" class="primary-button">Begin Story Mode</button>
             <button id="leaderboardButton" class="secondary-button">View Leaderboard</button>
@@ -31,41 +43,133 @@
         </section>
 
         <section id="leaderboardScreen" class="panel hidden">
-          <div class="section-heading"><div><p class="eyebrow">Hall of fame</p><h2>Local Leaderboard</h2></div><button id="backToWelcome" class="text-button">← Back</button></div>
-          <p class="helper-text">Scores are saved in this browser only. No account or server is required.</p>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow golden">Hall of fame</p>
+              <h2>Local Leaderboard</h2>
+            </div>
+            <button id="backToWelcome" class="text-button">← Back</button>
+          </div>
+          <p class="helper-text">Scores are saved in this browser only for a personal local leaderboard.</p>
           <ol id="leaderboardList" class="leaderboard-list"></ol>
           <button id="clearLeaderboard" class="secondary-button">Clear scores</button>
         </section>
 
         <section id="setupScreen" class="panel hidden">
           <h2>Customize your challenge</h2>
-          <div class="field-group"><label for="categorySelect">Category</label><select id="categorySelect"><option value="all">All categories</option><option value="World Cup">World Cup</option><option value="Players">Players</option><option value="Clubs">Clubs</option><option value="Records">Records</option><option value="Tournaments">Tournaments</option></select></div>
-          <div class="field-group"><label for="questionCountSelect">Questions per round</label><select id="questionCountSelect"><option value="5" selected>5</option><option value="10">10</option></select></div>
-          <div class="field-group"><label for="difficultySlider">Maximum level: <span id="difficultyValue">100</span></label><input id="difficultySlider" type="range" min="1" max="100" value="100" /><div class="difficulty-scale"><span>1</span><span>25</span><span>50</span><span>75</span><span>100</span></div></div>
+
+          <div class="field-group">
+            <label for="categorySelect">Category</label>
+            <select id="categorySelect">
+              <option value="all">All categories</option>
+              <option value="World Cup">World Cup</option>
+              <option value="Players">Players</option>
+              <option value="Clubs">Clubs</option>
+              <option value="Records">Records</option>
+              <option value="Tournaments">Tournaments</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="questionCountSelect">Questions per round</label>
+            <select id="questionCountSelect">
+              <option value="5" selected>5</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="difficultySlider">
+              Maximum level: <span id="difficultyValue">100</span>
+            </label>
+            <input id="difficultySlider" type="range" min="1" max="100" value="100" />
+            <div class="difficulty-scale">
+              <span>1</span>
+              <span>25</span>
+              <span>50</span>
+              <span>75</span>
+              <span>100</span>
+            </div>
+          </div>
+
           <button id="startButton" class="primary-button">Start Custom Game</button>
         </section>
 
         <section id="gameScreen" class="panel hidden">
-          <div class="round-banner"><span id="storyRoundLabel">Chapter 1</span><span id="tierLockLabel">Levels 1–20 unlocked</span></div>
-          <div class="status-row"><span id="scoreDisplay">Score: 0</span><span id="progressDisplay">Question 1/5</span><span id="timerDisplay">Time: 20s</span></div>
-          <div class="progress-track"><div id="progressBar" class="progress-fill"></div></div>
+          <div class="round-banner">
+            <span id="storyRoundLabel">Chapter 1</span>
+            <span id="tierLockLabel">Levels 1–20 unlocked</span>
+          </div>
+
+          <div class="status-row">
+            <span id="scoreDisplay">Score: 0</span>
+            <span id="progressDisplay">Question 1/5</span>
+            <span id="timerDisplay">Time: 20s</span>
+          </div>
+
+          <div class="progress-track">
+            <div id="progressBar" class="progress-fill"></div>
+          </div>
+
           <div id="levelMap" class="level-map" aria-label="Level progression map"></div>
-          <div class="question-box"><p class="level-badge">Level <span id="levelBadge">1</span></p><h2 id="questionText">Question</h2></div>
+
+          <div class="question-box">
+            <p class="level-badge">Level <span id="levelBadge">1</span></p>
+            <h2 id="questionText">Question</h2>
+          </div>
+
           <div id="optionsContainer" class="options"></div>
           <button id="nextButton" class="primary-button hidden">Next Question</button>
         </section>
 
         <section id="resultsScreen" class="panel hidden">
-          <p class="eyebrow">Journey complete</p><h2>Final Results</h2>
-          <div class="result-grid"><div class="result-box"><span class="label">Final Score</span><strong id="finalScore">0/100</strong></div><div class="result-box"><span class="label">Accuracy</span><strong id="accuracyPercent">0%</strong></div><div class="result-box"><span class="label">Correct Answers</span><strong id="correctCount">0</strong></div><div class="result-box"><span class="label">Questions</span><strong id="totalQuestions">0</strong></div></div>
+          <p class="eyebrow golden">Journey complete</p>
+          <h2>Final Results</h2>
+
+          <div class="result-grid">
+            <div class="result-box">
+              <span class="label">Final Score</span>
+              <strong id="finalScore">0/100</strong>
+            </div>
+            <div class="result-box">
+              <span class="label">Accuracy</span>
+              <strong id="accuracyPercent">0%</strong>
+            </div>
+            <div class="result-box">
+              <span class="label">Correct Answers</span>
+              <strong id="correctCount">0</strong>
+            </div>
+            <div class="result-box">
+              <span class="label">Questions</span>
+              <strong id="totalQuestions">0</strong>
+            </div>
+          </div>
+
           <div id="summaryMessage" class="summary-message"></div>
-          <div id="saveScoreBox" class="save-score-box"><label for="playerName">Enter your name for the leaderboard</label><div class="name-row"><input id="playerName" maxlength="18" placeholder="Football fan" /><button id="saveScoreButton" class="primary-button">Save Score</button></div></div>
-          <button id="restartButton" class="primary-button">Play Again</button><button id="resultsLeaderboardButton" class="secondary-button">View Leaderboard</button>
-          <div id="answerSection" class="answers locked"><h3>Answer Vault <span>🔒</span></h3><p class="helper-text">Complete every chapter to unlock the answers.</p><ul id="answersList"></ul></div>
+
+          <div id="saveScoreBox" class="save-score-box">
+            <label for="playerName">Enter your name for the leaderboard</label>
+            <div class="name-row">
+              <input id="playerName" maxlength="18" placeholder="Football fan" />
+              <button id="saveScoreButton" class="primary-button">Save Score</button>
+            </div>
+          </div>
+
+          <div class="button-row">
+            <button id="restartButton" class="primary-button">Play Again</button>
+            <button id="resultsLeaderboardButton" class="secondary-button">View Leaderboard</button>
+          </div>
+
+          <div id="answerSection" class="answers locked">
+            <h3>Answer Vault <span>🔒</span></h3>
+            <p class="helper-text">Complete every chapter to unlock the answers.</p>
+            <ul id="answersList"></ul>
+          </div>
         </section>
       </main>
     </div>
+
     <script src="script.js"></script>
-    <script src="enhancements.js"></script>
+    <script src="design.js"></script>
   </body>
 </html>
