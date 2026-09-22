@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soccer Trivia</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <p class="eyebrow">Football Knowledge Challenge</p>
+        <h1>Soccer Trivia</h1>
+      </header>
+
+      <main>
+        <section id="setupScreen" class="panel">
+          <h2>Choose your difficulty</h2>
+          <p class="helper-text">
+            Questions range from Level 1 (easy) to Level 100 (expert). The game
+            uses a broad set of soccer facts, legends, records, and major tournament
+            milestones.
+          </p>
+
+          <label for="difficultySlider">Difficulty: <span id="difficultyValue">50</span></label>
+          <input
+            id="difficultySlider"
+            type="range"
+            min="1"
+            max="100"
+            value="50"
+          />
+
+          <div class="difficulty-scale">
+            <span>1</span>
+            <span>25</span>
+            <span>50</span>
+            <span>75</span>
+            <span>100</span>
+          </div>
+
+          <button id="startButton" class="primary-button">Start Game</button>
+        </section>
+
+        <section id="gameScreen" class="panel hidden">
+          <div class="status-row">
+            <span id="scoreDisplay">Score: 0</span>
+            <span id="progressDisplay">Question 1/10</span>
+          </div>
+
+          <div class="question-box">
+            <p class="level-badge">Level <span id="levelBadge">0</span></p>
+            <h2 id="questionText">Question</h2>
+          </div>
+
+          <div id="optionsContainer" class="options"></div>
+
+          <button id="nextButton" class="primary-button hidden">Next Question</button>
+        </section>
+
+        <section id="resultsScreen" class="panel hidden">
+          <h2>Final Results</h2>
+
+          <div class="result-grid">
+            <div class="result-box">
+              <span class="label">Aggregate Score</span>
+              <strong id="aggregateScore">0</strong>
+            </div>
+            <div class="result-box">
+              <span class="label">Accuracy</span>
+              <strong id="accuracyPercent">0%</strong>
+            </div>
+            <div class="result-box">
+              <span class="label">Correct</span>
+              <strong id="correctCount">0</strong>
+            </div>
+            <div class="result-box">
+              <span class="label">Total</span>
+              <strong id="totalQuestions">0</strong>
+            </div>
+          </div>
+
+          <button id="restartButton" class="primary-button">Play Again</button>
+
+          <div id="answerSection" class="answers hidden">
+            <h3>Answer Review</h3>
+            <ul id="answersList"></ul>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
